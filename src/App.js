@@ -1,9 +1,32 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { ThemeProvider } from "styled-components";
+import GlobalStyles from "./styles/GlobalStyles";
+import Theme from "./styles/Theme";
+import styled from "styled-components";
+const StyledHeader = styled.h2`
+  color: ${({ theme }) => theme.colorDark};
+  ${props =>
+    props.primary
+      ? `color: ${props.theme.colorPrimary};`
+      : `color: ${props.theme.colorSecondary}`};
+`;
+
+const TestHeader = props => {
+  return <StyledHeader {...props}>{props.children}</StyledHeader>;
+};
 
 function App() {
-  return <div className="App">Hello World!</div>;
+  return (
+    <>
+      <GlobalStyles />
+      <ThemeProvider theme={Theme}>
+        <>
+          <TestHeader>Hello World</TestHeader>
+          <TestHeader primary>Hello World</TestHeader>
+        </>
+      </ThemeProvider>
+    </>
+  );
 }
 
 export default App;
