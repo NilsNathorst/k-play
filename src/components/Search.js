@@ -1,15 +1,23 @@
 import React, { Component } from "react";
 import Select from "react-select";
-
-const content = {
-  dans: { videos: ["dansvideo 1", "dansvideo 2"] },
-  foto: { videos: ["fotovideo 1", "fotovideo 2"] }
+import customStyles from "../styles/customStyle";
+import tracks from "../data/tracks";
+import videos from "../data/youtube";
+const allContent = [tracks, videos].flat();
+console.log(allContent);
+const filterContentByTag = (contentArray, tag) => {
+  let newArr = contentArray.filter(content => content.tags.includes(tag));
+  return newArr;
 };
 
-const options = [
-  { label: "Dans", value: content.dans.videos },
-  { label: "Foto", value: content.foto.videos }
+// options
+const tags = [
+  { label: "dans", value: filterContentByTag(videos, "dans") },
+  { label: "teater", value: filterContentByTag(videos, "teater") },
+  { label: "film", value: filterContentByTag(videos, "film") }
 ];
+
+// end options
 
 class Search extends Component {
   constructor(props) {
@@ -38,21 +46,28 @@ class Search extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <Select
+          styles={customStyles}
           isMulti
           filterOption={this.filterOption}
           onInputChange={this.onInputChange}
           onChange={this.onChange}
-          options={options}
+          options={tags}
           value={this.state.values}
         />
+
         {this.state.values
-          ? this.state.values.map(item =>
-              item.value.map(video => {
-                return <p>{video}</p>;
-              })
-            )
+          ? this.state.values.map(item => {
+              return item.value.map(content => {
+                return (
+                  <>
+                    <p key={content.id}>{content.title}</p>
+                    <img src={content.thumbnail}></img>
+                  </>
+                );
+              });
+            })
           : null}
       </div>
     );
