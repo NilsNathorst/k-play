@@ -8,6 +8,8 @@ import SingleVideo from "./components/SingleVideo";
 import Theme from "./styles/Theme";
 import Header from "./components/Header";
 import Search from "./components/Search";
+import CategoriesContainer from "./components/CategoriesContainer";
+
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
               <Route path="/video/:id" component={SingleVideo}></Route>
             </Switch>
             <Search />
+            <CategoriesContainer />
           </Router>
         </>
       </ThemeProvider>
