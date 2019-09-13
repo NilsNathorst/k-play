@@ -3,12 +3,11 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyles from "./styles/GlobalStyles";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./views/Home";
+import Content from "./views/Content";
 import Video from "./views/Video";
 import SingleVideo from "./components/SingleVideo";
 import Theme from "./styles/Theme";
 import Header from "./components/Header";
-import Search from "./components/Search";
-import CategoriesContainer from "./components/CategoriesContainer";
 
 
 function App() {
@@ -20,12 +19,11 @@ function App() {
           <Router>
             <Header />
             <Switch>
-              <Route path="/" exact component={Home}></Route>
-              <Route path="/video" exact component={Video}></Route>
+              <Route exact path="/" component={Home}></Route>
+              <Route path="/content" component={Content}></Route>
+              <Route exact path="/video" component={Video}></Route>
               <Route path="/video/:id" component={SingleVideo}></Route>
             </Switch>
-            <Search />
-            <CategoriesContainer />
           </Router>
         </>
       </ThemeProvider>
