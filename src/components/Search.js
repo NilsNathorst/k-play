@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import customStyles from "../styles/customStyle";
 import Select, { components } from "react-select";
-import makeAnimated from "react-select/lib/animated";
 import tracks from "../data/tracks";
 import videos from "../data/youtube";
 const allContent = [tracks, videos].flat();
@@ -48,7 +47,6 @@ class Search extends Component {
         <Select
           styles={customStyles}
           isMulti
-          components={makeAnimated()}
           filterOption={this.filterOption}
           onInputChange={this.onInputChange}
           onChange={this.onChange}
