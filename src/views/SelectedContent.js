@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Search from "../components/Search";
+import card from "../components/mediaCard";
 import tracks from "../data/tracks";
 import videos from "../data/youtube";
 const filterContentByTag = (contentArray, tag) => {
@@ -16,10 +17,10 @@ class SelectedContent extends Component {
       < Search />
 
       {SelectedContent.map(category => (
-        <>
-          <p key={category.id}>{category.title}</p>
+        <card>
           <img src={category.thumbnail}></img>
-        </>
+          <p key={category.id}>{category.title}</p>
+        </card>
       ))}
       </>  
 
