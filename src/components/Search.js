@@ -1,22 +1,22 @@
 import React, { Component } from "react";
-import Select from "react-select";
 import customStyles from "../styles/customStyle";
+import Select, { components } from "react-select";
+import makeAnimated from "react-select/lib/animated";
 import tracks from "../data/tracks";
 import videos from "../data/youtube";
 const allContent = [tracks, videos].flat();
+
 console.log(allContent);
 const filterContentByTag = (contentArray, tag) => {
   let newArr = contentArray.filter(content => content.tags.includes(tag));
   return newArr;
 };
-
 // options
 const tags = [
   { label: "dans", value: filterContentByTag(videos, "dans") },
   { label: "teater", value: filterContentByTag(videos, "teater") },
   { label: "film", value: filterContentByTag(videos, "film") }
 ];
-
 // end options
 
 class Search extends Component {
@@ -30,7 +30,6 @@ class Search extends Component {
   onChange = (opt, { option }) => {
     let newOpts = opt;
     let string = this.state.searchField;
-
     this.setState({
       searchField: string,
       values: newOpts
@@ -43,20 +42,19 @@ class Search extends Component {
       });
     }
   };
-
   render() {
     return (
       <div>
         <Select
           styles={customStyles}
           isMulti
+          components={makeAnimated()}
           filterOption={this.filterOption}
           onInputChange={this.onInputChange}
           onChange={this.onChange}
           options={tags}
           value={this.state.values}
         />
-
         {this.state.values
           ? this.state.values.map(item => {
               return item.value.map(content => {
