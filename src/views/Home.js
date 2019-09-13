@@ -5,9 +5,7 @@ import CategoriesContainer from "../components/CategoriesContainer";
 class Home extends Component {
   render() {
     return <div>
-      <p>Hi</p>
       <CategoriesContainer />
-
     </div>;
   }
 }
