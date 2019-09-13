@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyles from "./styles/GlobalStyles";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./views/Home";
-import Content from "./views/Content";
+import SelectedContent from "./views/SelectedContent";
 import Video from "./views/Video";
 import SingleVideo from "./components/SingleVideo";
 import Theme from "./styles/Theme";
@@ -20,7 +20,7 @@ function App() {
             <Header />
             <Switch>
               <Route exact path="/" component={Home}></Route>
-              <Route path="/content" component={Content}></Route>
+              <Route path="/selectedcontent/:category" component={SelectedContent}></Route>
               <Route exact path="/video" component={Video}></Route>
               <Route path="/video/:id" component={SingleVideo}></Route>
             </Switch>
