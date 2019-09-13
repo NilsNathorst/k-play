@@ -3,9 +3,9 @@ import customStyles from "../styles/customStyle";
 import Select, { components } from "react-select";
 import tracks from "../data/tracks";
 import videos from "../data/youtube";
-const allContent = [tracks, videos].flat();
+//const allContent = [tracks, videos].flat();
 
-console.log(allContent);
+//console.log(allContent);
 const filterContentByTag = (contentArray, tag) => {
   let newArr = contentArray.filter(content => content.tags.includes(tag));
   return newArr;
