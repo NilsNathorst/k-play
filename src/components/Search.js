@@ -1,11 +1,53 @@
 import React, { Component } from "react";
-import customStyles from "../styles/customStyle";
-import Select, { components } from "react-select";
+import ReactSelect, { components } from "react-select";
 import tracks from "../data/tracks";
+import styled from "styled-components";
 import videos from "../data/youtube";
+import SearchIcon from "../components/icons/Search";
+console.log(SearchIcon);
 const allContent = [tracks, videos].flat();
+const MultiSelect = styled(ReactSelect)`
+  .select__control{
+    opacity: 1;
+    }
+  .select__control,
+  .select__menu {
+    
+    background-color:${({ theme }) => theme.colorDark};
+    color: white !important;
+  }
+  .select__control--is-focused{
+    opacity: 1;
+  }
+  .select__multi-value {
+    flex-direction: row-reverse;
+    background-color: ${({ theme }) => theme.colorPrimary};;
+    svg {
+      fill: white;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+    .select__multi-value__label {
+      color: white;
+    }
+  }
+  .placeholder-text {
+    color: white !important;
+    height: 100%;
+  }
+  .select__placeholder {
+  }
+  .select__multi-value__remove{
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
+  .select__menu{
+    margin:0;
+  }
+`;
 
-console.log(allContent);
 const filterContentByTag = (contentArray, tag) => {
   let newArr = contentArray.filter(content => content.tags.includes(tag));
   return newArr;
@@ -44,10 +86,16 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <Select
-          styles={customStyles}
+        <MultiSelect
+          {...this.props}
+          placeholder={
+            <SearchIcon>
+              <span className="placeholder-text">sök...</span>
+            </SearchIcon>
+          }
+          className="select"
+          classNamePrefix={"select"}
           isMulti
-          filterOption={this.filterOption}
           onInputChange={this.onInputChange}
           onChange={this.onChange}
           options={tags}
