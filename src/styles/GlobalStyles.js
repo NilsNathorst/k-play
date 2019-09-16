@@ -2,7 +2,8 @@ import { createGlobalStyle } from "styled-components";
 import theme from "./Theme";
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+
   *,*::before,*::after {
     box-sizing: border-box;
     margin: 0;
@@ -12,17 +13,42 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     background-color: ${theme.colorDark};
-    padding: 1.3rem 1rem 2.6rem 1rem;
+    color: ${theme.colorLight};
   }
   #root{
     overflow-x: hidden;
   }
-  h1 {
-    color: ${theme.colorLight};
-    font-size: 52px;
-    letter-spacing: -1.2px;
-    font-weight: 900;
+p, .card-title {
+  opacity: 0.7
+}
+  ${"" /* MOBILE TYPOGRAPHY */}
+  h1,h2,h3,h4, article {
+    letter-spacing: -0.0294118em;
   }
+  h1 { font: ${theme.fontMobileH1} }
+  h2 { font: ${theme.fontMobileH2} }
+  h3 { font: ${theme.fontMobileH3} }
+  h4 { font: ${theme.fontMobileH4} }
+  h5 { font: ${theme.fontMobileH5} }
+  p { font: ${theme.fontMobileP} }
+  ${"" /* alternate P tags "preamble" and "card-title" */}
+.preamble {font: ${theme.fontMobilePreamble}!important;}
+.card-title { font: ${theme.fontMobileCardTitle}!important;}
+
+  @media screen and (min-width: 900px) {
+    h1,h2,h3,h4, article {
+    letter-spacing: -0.0294118em;
+  }
+  h1 { font: ${theme.fontDesktopH1} }
+  h2 { font: ${theme.fontDesktopH2} }
+  h3 { font: ${theme.fontDesktopH3} }
+  h4 { font: ${theme.fontDesktopH4} }
+  h5 { font: ${theme.fontDesktopH5} }
+  p { font: ${theme.fontDesktopP} }
+  ${"" /* alternate P tags "preamble" and "card-title" */}
+.preamble {font: ${theme.fontDesktopPreamble}!important; }
+.card-title { font: ${theme.fontDesktopCardTitle}!important;}
+}
 `;
 
 export default GlobalStyle;
