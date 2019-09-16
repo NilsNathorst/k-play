@@ -18,6 +18,9 @@ const VideoWrapper = styled.div`
 `;
 const InfoWrapper = styled.div`
   padding: 1rem;
+  p {
+    color: ${({ theme }) => theme.colorDark};
+  }
 `;
 const Container = styled.div`
   display: flex;

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import videos from "../data/youtube";
 import VideosContainer from "../components/VideosContainer";
 import VideoCard from "../components/VideoCard";
-import BackButton from "../components/buttons/Back"
+import BackButton from "../components/buttons/Back";
 
 const SelectedPlaylist = videos.filter(video =>
   video.title.split(" ").includes("Masterclass")
@@ -31,8 +31,8 @@ class Playlist extends Component {
     return (
       <>
         <PlaylistHeader>
-          <BackButton/>
-          <p>spellista</p>
+          <BackButton />
+          <h4>spellista</h4>
           <h1>Masterclass med Pia Olby</h1>
         </PlaylistHeader>
         <VideosContainer>
