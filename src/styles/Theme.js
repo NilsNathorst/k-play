@@ -4,3 +4,8 @@ const Theme = {
   colorPrimary: "#ca8140"
 };
 export default Theme;
+/* usage 
+
+${({ theme }) => theme.colorDark}
+
+*/
