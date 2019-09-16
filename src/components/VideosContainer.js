@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-const Container = styled.div`
-  width: 100vw;
+import ContainerTemplate from "./ContainerTemplate";
+const Container = styled(ContainerTemplate)`
+  width: 100%;
   background: linear-gradient(
     to top,
     ${({ theme }) => theme.colorDark},
@@ -12,7 +13,6 @@ const Container = styled.div`
   display: grid;
   align-items: center;
   justify-items: center;
-  padding: 0 1rem 2.5rem 1rem;
   grid-gap: 2rem;
 `;
 const VideosContainer = props => {
