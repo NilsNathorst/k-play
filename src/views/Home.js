@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import CategoriesContainer from "../components/CategoriesContainer";
 
-
 class Home extends Component {
   render() {
-    return <div>
-      <CategoriesContainer />
-    </div>;
+    return (
+      <div>
+        <CategoriesContainer />
+      </div>
+    );
   }
 }
 
