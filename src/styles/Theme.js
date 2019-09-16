@@ -11,7 +11,7 @@ const Theme = {
   fontMobileH1: "normal 900 52px/107% Roboto",
   fontMobileH2: "normal 900 40px/139% Roboto",
   fontMobileH3: "normal 900 34px/163% Roboto",
-  fontMobileH4: "normal 900 20px/150% Roboto",
+  fontMobileH4: "normal 700 20px/150% Roboto",
   fontMobileH5: "normal 700 16px/187% Roboto",
   fontMobileCardTitle: "normal 500 13px/187% Roboto",
   fontMobileP: "normal 300 13px/169% Roboto",

@@ -22,8 +22,11 @@ p, .card-title {
   opacity: 0.7
 }
   ${"" /* MOBILE TYPOGRAPHY */}
-  h1,h2,h3,h4, article {
+  h1,h2,h3,h4, .preamble {
     letter-spacing: -0.0294118em;
+  }
+  h5 {
+    letter-spacing: -0.01em;
   }
   h1 { font: ${theme.fontMobileH1} }
   h2 { font: ${theme.fontMobileH2} }
