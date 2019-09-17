@@ -4,7 +4,7 @@ import styled from "styled-components";
 import videos from "../data/youtube";
 import VideosContainer from "../components/VideosContainer";
 import VideoCard from "../components/VideoCard";
-import Logo from "../components/Logo";
+import BackButton from "../components/buttons/Back";
 
 const SelectedPlaylist = videos.filter(video =>
   video.title.split(" ").includes("Masterclass")
@@ -17,7 +17,13 @@ const PlaylistDescription = styled.div`
   background-color: ${({ theme }) => theme.colorDark};
 `;
 const PlaylistHeader = styled.div`
-  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: ${({ theme }) => theme.padding2};
+  padding-right: ${({ theme }) => theme.padding2};
+  padding-bottom: ${({ theme }) => theme.padding4};
+  height: 30vh;
   background-color: ${({ theme }) => theme.colorDark};
 `;
 class Playlist extends Component {
@@ -25,7 +31,8 @@ class Playlist extends Component {
     return (
       <>
         <PlaylistHeader>
-          <div className="header-nav"></div>
+          <BackButton />
+          <h4>spellista</h4>
           <h1>Masterclass med Pia Olby</h1>
         </PlaylistHeader>
         <VideosContainer>

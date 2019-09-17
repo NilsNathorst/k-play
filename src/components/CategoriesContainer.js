@@ -8,7 +8,11 @@ const filterContentByTag = (contentArray, tag) => {
 };
 const categories = [
   { label: "dans", name: "Dans", value: filterContentByTag(videos, "dans") },
-  { label: "teater", name: "Teater", value: filterContentByTag(videos, "teater") },
+  {
+    label: "teater",
+    name: "Teater",
+    value: filterContentByTag(videos, "teater")
+  },
   { label: "film", name: "Film", value: filterContentByTag(videos, "film") }
 ];
 
@@ -18,11 +22,12 @@ class CategoriesContainer extends Component {
       <>
         {categories.map(category => (
           <p>
-          <Link to={`/selectedcontent/${category.label}`}>{category.name}</Link>
+            <Link to={`/selectedcontent/${category.label}`}>
+              {category.name}
+            </Link>
           </p>
         ))}
       </>
-        
     );
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import ContainerTemplate from "./ContainerTemplate";
 import Logo from "./Logo";
 const SearchIcon = () => {
   return (
@@ -33,9 +34,10 @@ const HamburgerIcon = () => {
     </svg>
   );
 };
-const Container = styled.div`
+const Container = styled(ContainerTemplate)`
   display: flex;
   margin-bottom: 2rem;
+  padding-bottom: 0;
   justify-content: space-between;
   div {
     display: flex;
