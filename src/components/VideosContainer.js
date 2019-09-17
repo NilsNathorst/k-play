@@ -6,8 +6,8 @@ const Container = styled(ContainerTemplate)`
   background: linear-gradient(
     to top,
     ${({ theme }) => theme.colorDark},
-    ${({ theme }) => theme.colorDark} 95px,
-    ${({ theme }) => theme.colorLight} 95px
+    ${({ theme }) => theme.colorDark} 60px,
+    ${({ theme }) => theme.colorLight} 60px
   );
   grid-auto-rows: 130px;
   display: grid;

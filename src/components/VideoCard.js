@@ -42,7 +42,7 @@ const VideoCard = props => {
       </VideoWrapper>
       <InfoWrapper>
         <p>{title}</p>
-        <p>{publishedAt.split("T12")[0]}</p>
+        <p>{publishedAt.split("T")[0]}</p>
       </InfoWrapper>
     </Container>
   );
