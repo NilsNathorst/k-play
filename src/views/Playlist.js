@@ -5,6 +5,7 @@ import videos from "../data/youtube";
 import VideosContainer from "../components/VideosContainer";
 import VideoCard from "../components/VideoCard";
 import BackButton from "../components/buttons/Back";
+import Description from "../components/playlistDescription";
 
 const SelectedPlaylist = videos.filter(video =>
   video.title.split(" ").includes("Masterclass")
@@ -23,7 +24,6 @@ const PlaylistHeader = styled.div`
   padding-left: ${({ theme }) => theme.padding2};
   padding-right: ${({ theme }) => theme.padding2};
   padding-bottom: ${({ theme }) => theme.padding4};
-  height: 30vh;
   background-color: ${({ theme }) => theme.colorDark};
 `;
 class Playlist extends Component {
@@ -34,6 +34,7 @@ class Playlist extends Component {
           <BackButton />
           <h4>spellista</h4>
           <h1>Masterclass med Pia Olby</h1>
+          <Description/>
         </PlaylistHeader>
         <VideosContainer>
           {SelectedPlaylist.map(video => {
