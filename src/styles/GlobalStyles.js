@@ -11,6 +11,11 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
     font-family: Roboto;
   }
+  a, a:visited{
+    text-decoration: none;
+    color: ${theme.colorLight};
+  }
+    
   body {
     background-color: ${theme.colorDark};
     color: ${theme.colorLight};
@@ -25,6 +30,8 @@ p, .card-title {
   h1,h2,h3,h4, .preamble {
     letter-spacing: -0.0294118em;
   }
+
+
   h5 {
     letter-spacing: -0.01em;
   }
