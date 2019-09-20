@@ -1,35 +1,26 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import tracks from "../data/tracks";
-import videos from "../data/youtube";
+import React from "react";
+import { Link } from "react-router-dom";
 
-const filterContentByTag = (contentArray, tag) => {
-  let newArr = contentArray.filter(content => content.tags.includes(tag));
-  return newArr;
-};
 const categories = [
-  { label: "dans", name: "Dans", value: filterContentByTag(videos, "dans") },
+  { label: "dans", name: "Dans" },
   {
     label: "teater",
-    name: "Teater",
-    value: filterContentByTag(videos, "teater")
+    name: "Teater"
   },
-  { label: "film", name: "Film", value: filterContentByTag(videos, "film") }
+  { label: "film", name: "Film" },
+  { label: "all", name: "Alla videor" }
 ];
 
-class CategoriesContainer extends Component {
-  render() {
-    return (
-      <>
-        {categories.map(category => (
-          <p>
-            <Link to={`/selectedcontent/${category.label}`}>
-              {category.name}
-            </Link>
-          </p>
-        ))}
-      </>
-    );
-  }
-}
+const CategoriesContainer = props => {
+  return (
+    <>
+      {categories.map((category, i) => (
+        <Link key={i} to={`/selectedcontent/${category.label}`}>
+          <p>{category.name}</p>
+        </Link>
+      ))}
+    </>
+  );
+};
+
 export default CategoriesContainer;

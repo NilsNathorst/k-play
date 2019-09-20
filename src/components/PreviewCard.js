@@ -1,7 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Play from "../components/buttons/Play";
+import moment from "moment";
+import "moment-duration-format";
+
 const VideoWrapper = styled.div`
+  height: 130px;
   a {
     display: flex;
     align-items: center;
@@ -15,11 +20,18 @@ const VideoWrapper = styled.div`
     position: absolute;
     z-index: 1;
   }
+  .video-title {
+    padding-left: ${({ theme }) => theme.padding1};
+    max-height: 42px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+  }
 `;
 const InfoWrapper = styled.div`
-  padding: 1rem;
   p {
     color: ${({ theme }) => theme.colorLight};
+    padding-left: ${({ theme }) => theme.padding1};
   }
 `;
 const Container = styled.div`
@@ -30,18 +42,37 @@ const Container = styled.div`
   height: 100%;
 `;
 const PreviewCard = props => {
-  const { thumbnail, title } = props.category || props.video;
+  const {
+    description,
+    duration,
+    publishedAt,
+    id,
+    tags,
+    thumbnail,
+    title,
+    type,
+    url
+  } = props.videoData;
 
+  const humanReadableTime = moment
+    .duration(duration)
+    .format("HH:mm:ss", { trim: false });
+  let Hours = humanReadableTime.split(":")[0];
+  let Minutes = humanReadableTime.split(":")[1];
+  let Seconds = humanReadableTime.split(":")[2];
+  if (Hours === "00") Hours = "";
+  const newDur = Hours + Minutes + "." + Seconds + " min";
   return (
     <Container>
-      <VideoWrapper>
-        <a href="#">
+      <VideoWrapper className="wrapppppppppp">
+        <Link to={`video/${id}`}>
           <Play className="play-icon" />
-          <img className="thumbnail" src={thumbnail} />
-        </a>
+          <img className="thumbnail" src={thumbnail} alt={thumbnail} />
+          <p className="card-title video-title">{title}</p>
+        </Link>
       </VideoWrapper>
       <InfoWrapper>
-        <p>{title}</p>
+        <p className="video-duration">{newDur}</p>
       </InfoWrapper>
     </Container>
   );

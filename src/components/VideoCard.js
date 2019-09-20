@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Play from "../components/buttons/Play";
 const VideoWrapper = styled.div`
@@ -30,15 +31,15 @@ const Container = styled.div`
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
 `;
 const VideoCard = props => {
-  const { publishedAt, thumbnail, title, url } = props.video;
+  const { publishedAt, thumbnail, title } = props.video;
 
   return (
     <Container>
       <VideoWrapper>
-        <a href="#">
+        <Link to="#">
           <Play className="play-icon" />
-          <img className="thumbnail" src={thumbnail} />
-        </a>
+          <img className="thumbnail" src={thumbnail} alt={thumbnail} />
+        </Link>
       </VideoWrapper>
       <InfoWrapper>
         <p>{title}</p>
