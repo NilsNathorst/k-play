@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import Return from "../components/buttons/Return";
 
-class VideoPage extends Component {
-  render() {
-    return <div>Hello Videos!</div>;
-  }
-}
+const Video = () => {
+  return (
+    <>
+      <Return linkTo="/" />
+    </>
+  );
+};
 
-export default VideoPage;
+export default Video;
