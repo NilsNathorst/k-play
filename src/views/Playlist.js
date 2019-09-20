@@ -5,6 +5,7 @@ import videos from "../data/youtube";
 import VideosContainer from "../components/VideosContainer";
 import VideoCard from "../components/VideoCard";
 import BackButton from "../components/buttons/Back";
+import Return from "../components/buttons/Return";
 import Description from "../components/playlistDescription";
 
 const SelectedPlaylist = videos.filter(video =>
@@ -31,7 +32,7 @@ class Playlist extends Component {
     return (
       <>
         <PlaylistHeader>
-          <BackButton />
+          <Return linkTo="/video"/>
           <h4>spellista</h4>
           <h1>Masterclass med Pia Olby</h1>
           <Description/>

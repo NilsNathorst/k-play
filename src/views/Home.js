@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from "react";
 import styled from "styled-components";
 import HeroImage from "../assets/Hero.png";
 import ContainerTemplate from "../components/ContainerTemplate";
+import CategoriesContainer from "../components/CategoriesContainer";
 const ImageWrapper = styled(ContainerTemplate)`
   transform: translateY(-115px);
   z-index: -1;
@@ -23,6 +24,7 @@ const Home = () => {
   return (
     <>
       <ImageWrapper />
+      <CategoriesContainer></CategoriesContainer>
     </>
   );
 };

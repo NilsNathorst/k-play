@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import tracks from "../data/tracks";
 import videos from "../data/youtube";
+
 const filterContentByTag = (contentArray, tag) => {
   let newArr = contentArray.filter(content => content.tags.includes(tag));
   return newArr;
