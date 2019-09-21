@@ -57,15 +57,19 @@ const PreviewCard = props => {
   const humanReadableTime = moment
     .duration(duration)
     .format("HH:mm:ss", { trim: false });
-  let Hours = humanReadableTime.split(":")[0];
+
+  let Hours = humanReadableTime.split(":")[0].split("")[1] + " h";
   let Minutes = humanReadableTime.split(":")[1];
   let Seconds = humanReadableTime.split(":")[2];
-  if (Hours === "00") Hours = "";
-  const newDur = Hours + Minutes + "." + Seconds + " min";
+  if (Minutes.split("")[0] === "0") Minutes = Minutes.split("")[1];
+  if (Hours === "0 h") Hours = "";
+
+  const newDur = `${Hours} ${Minutes}.${Seconds} min`;
+
   return (
     <Container>
       <VideoWrapper className="wrapppppppppp">
-        <Link to={`video/${id}`}>
+        <Link to={`/video/${id}`}>
           <Play className="play-icon" />
           <img className="thumbnail" src={thumbnail} alt={thumbnail} />
           <p className="card-title video-title">{title}</p>
