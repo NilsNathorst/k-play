@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import customStyles from "../styles/customStyle";
-import Select, { components } from "react-select";
-import tracks from "../data/tracks";
+import Select from "react-select";
 import videos from "../data/youtube";
-//const allContent = [tracks, videos].flat();
 
-//console.log(allContent);
 const filterContentByTag = (contentArray, tag) => {
   let newArr = contentArray.filter(content => content.tags.includes(tag));
   return newArr;
@@ -59,7 +56,7 @@ class Search extends Component {
                 return (
                   <>
                     <p key={content.id}>{content.title}</p>
-                    <img src={content.thumbnail}></img>
+                    <img src={content.thumbnail} alt={content.thumbnail}></img>
                   </>
                 );
               });

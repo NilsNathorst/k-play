@@ -46,7 +46,7 @@ const Container = styled(ContainerTemplate)`
 export class Header extends Component {
   render() {
     return (
-      <Container>
+      <Container isPrimary>
         <Logo />
         <div>
           <SearchIcon />
