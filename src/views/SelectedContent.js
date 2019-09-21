@@ -6,10 +6,8 @@ import Return from "../components/buttons/Return";
 import PreviewCard from "../components/PreviewCard";
 import videos from "../data/youtube";
 import ContainerTemplate from "../components/ContainerTemplate";
-const filterContentByTag = (contentArray, tag) => {
-  let newArr = contentArray.filter(content => content.tags.includes(tag));
-  return newArr;
-};
+import { filterContentByTag } from "../functions";
+
 const Container = styled(ContainerTemplate)`
   width: 100%;
   grid-template-columns: 48% 48%;
