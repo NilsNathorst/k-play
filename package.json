@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@u-wave/react-youtube": "^0.7.0",
     "dotenv": "^8.1.0",
     "moment": "^2.24.0",
     "moment-duration-format": "^2.3.2",
