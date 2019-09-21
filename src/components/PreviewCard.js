@@ -25,6 +25,7 @@ const InfoWrapper = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-self: start;
   background-color: ${({ theme }) => theme.colorDark};
   width: 100%;
   height: 100%;
