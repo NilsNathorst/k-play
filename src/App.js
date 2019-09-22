@@ -7,7 +7,7 @@ import SelectedContent from "./views/SelectedContent";
 import Video from "./views/Video";
 import Playlist from "./views/Playlist";
 
-import VideoPlayer from "./components/VideoPlayer";
+import MediaPlayer from "./components/MediaPlayer";
 import Header from "./components/Header";
 
 import Theme from "./styles/Theme";
@@ -32,8 +32,8 @@ function App() {
                 component={SelectedContent}
               ></Route>
               <Route exact path="/playlist" component={Playlist}></Route>
-              <Route exact path="/video" component={Video}></Route>
-              <Route path="/video/:id" component={VideoPlayer}></Route>
+              {/* <Route exact path="/media" component={Video}></Route> */}
+              <Route path="/media/:id" component={MediaPlayer}></Route>
             </Switch>
           </Router>
         </>
