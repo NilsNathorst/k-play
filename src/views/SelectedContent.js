@@ -5,6 +5,7 @@ import Return from "../components/buttons/Return";
 
 import PreviewCard from "../components/PreviewCard";
 import videos from "../data/youtube";
+import podcasts from "../data/tracks";
 import ContainerTemplate from "../components/ContainerTemplate";
 import { filterContentByTag } from "../functions";
 
@@ -28,15 +29,23 @@ const Container = styled(ContainerTemplate)`
 // ];
 const SelectedContent = props => {
   let currentVideos = filterContentByTag(videos, props.match.params.category);
-  if (props.match.params.category === "all") currentVideos = videos;
+  let currentPodcasts = filterContentByTag(
+    podcasts,
+    props.match.params.category
+  );
+  if (props.match.params.category === "all") {
+    currentVideos = videos;
+    currentPodcasts = podcasts;
+  }
+
+  let currentMedia = [currentPodcasts, currentVideos].flat();
+
   return (
     <>
       <Return linkTo="/" />
       <Container>
-        {currentVideos.map(videoData => {
-          return (
-            <PreviewCard key={videoData.id} videoData={videoData}></PreviewCard>
-          );
+        {currentMedia.map(mediaData => {
+          return <PreviewCard key={mediaData.id} mediaData={mediaData} />;
         })}
       </Container>
     </>
