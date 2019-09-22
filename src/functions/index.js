@@ -1,6 +1,5 @@
 const filterContentByTag = (contentArray, tag) => {
-  let newArr = contentArray.filter(content => content.tags.includes(tag));
-  return newArr;
+  return contentArray.filter(content => content.tags.includes(tag));
 };
 
 const getRelatedMedia = (media, tags) => {
