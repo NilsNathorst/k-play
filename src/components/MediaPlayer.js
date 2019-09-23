@@ -8,7 +8,7 @@ import PreviewCard from "./PreviewCard";
 import ContainerTemplate from "./ContainerTemplate";
 import { filterContentByTag, getRelatedMedia } from "../functions";
 import SoundPlayer from "./SoundPlayer";
-const clientId = process.env.REACT_APP_SOUNDCLOUD_CLIENT_ID;
+const clientId = "45ca7c7c9b41fdcb2501bb7dd27e168b";
 
 const StyledYoutubePlayer = styled(YoutubePlayer)`
   width: 100%;
