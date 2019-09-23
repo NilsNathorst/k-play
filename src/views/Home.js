@@ -35,27 +35,27 @@ const Home = () => {
     <>
       <ImageWrapper />
       <div style={placeholderStyle}></div>
-      <h4>senaste videoklipp</h4>
+      <h5>senaste videoklipp</h5>
       <FixedScrollContainer>
         <Slider>
-          {allVideos.map(video => {
-            return <PreviewCard key={video.id} video={video}></PreviewCard>;
+          {allVideos.map(mediaData => {
+            return <PreviewCard key={mediaData.id} mediaData={mediaData}></PreviewCard>;
           })}
         </Slider>
       </FixedScrollContainer>
-      <h4>senaste podcasts</h4>
+      <h5>senaste podcasts</h5>
       <FixedScrollContainer>
         <Slider>
-          {allVideos.map(video => {
-            return <PreviewCard key={video.id} video={video}></PreviewCard>;
+          {allVideos.map(mediaData => {
+            return <PreviewCard key={mediaData.id} mediaData={mediaData}></PreviewCard>;
           })}
         </Slider>
       </FixedScrollContainer>
-      <h4>fortsätt där du var</h4>
+      <h5>fortsätt där du var</h5>
       <FixedScrollContainer>
         <Slider>
-          {allVideos.map(video => {
-            return <PreviewCard key={video.id} video={video}></PreviewCard>;
+          {allVideos.map(mediaData => {
+            return <PreviewCard key={mediaData.id} mediaData={mediaData}></PreviewCard>;
           })}
         </Slider>
       </FixedScrollContainer>
