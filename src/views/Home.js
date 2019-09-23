@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import videos from "../data/youtube";
+import tracks from "../data/tracks";
 import HeroImage from "../assets/Hero.png";
 import ContainerTemplate from "../components/ContainerTemplate";
 import CategoriesContainer from "../components/CategoriesContainer";
@@ -29,6 +30,7 @@ const placeholderStyle = {
   width: '100%'
 };
 const allVideos = videos;
+const allPodcasts = tracks;
 
 const Home = () => {
   return (
@@ -46,7 +48,7 @@ const Home = () => {
       <h5>senaste podcasts</h5>
       <FixedScrollContainer>
         <Slider>
-          {allVideos.map(mediaData => {
+          {allPodcasts.map(mediaData => {
             return <PreviewCard key={mediaData.id} mediaData={mediaData}></PreviewCard>;
           })}
         </Slider>
