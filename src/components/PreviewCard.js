@@ -5,7 +5,7 @@ import Play from "../components/buttons/Play";
 import moment from "moment";
 import "moment-duration-format";
 
-const VideoWrapper = styled.div`
+const MediaWrapper = styled.div`
   height: 130px;
   a {
     display: flex;
@@ -20,18 +20,20 @@ const VideoWrapper = styled.div`
     position: absolute;
     z-index: 1;
   }
-  .video-title {
-    padding-left: ${({ theme }) => theme.padding1};
-    max-height: 42px;
-    overflow: hidden;
-    position: absolute;
-    bottom: 0;
-  }
 `;
 const InfoWrapper = styled.div`
   p {
     color: ${({ theme }) => theme.colorLight};
     padding-left: ${({ theme }) => theme.padding1};
+  }
+  .media-title {
+    padding-left: ${({ theme }) => theme.padding1};
+    max-height: 33px;
+    overflow: hidden;
+    /* position: absolute; */
+    padding-top: 5px;
+    line-height: 110% !important;
+    bottom: 0;
   }
 `;
 const Container = styled.div`
@@ -53,7 +55,7 @@ const PreviewCard = props => {
     title,
     type,
     url
-  } = props.videoData;
+  } = props.mediaData;
 
   const humanReadableTime = moment
     .duration(duration)
@@ -64,20 +66,19 @@ const PreviewCard = props => {
   let Seconds = humanReadableTime.split(":")[2];
   if (Minutes.split("")[0] === "0") Minutes = Minutes.split("")[1];
   if (Hours === "0 h") Hours = "";
-
   const newDur = `${Hours} ${Minutes}.${Seconds} min`;
 
   return (
     <Container>
-      <VideoWrapper className="wrapppppppppp">
-        <Link to={`/video/${id}`}>
+      <MediaWrapper className="wrapppppppppp">
+        <Link to={`/media/${id}`}>
           <Play className="play-icon" />
           <img className="thumbnail" src={thumbnail} alt={thumbnail} />
-          <p className="card-title video-title">{title}</p>
         </Link>
-      </VideoWrapper>
+      </MediaWrapper>
       <InfoWrapper>
-        <p className="video-duration">{newDur}</p>
+        <p className="card-title media-title">{title}</p>
+        <p className="media-duration">{newDur}</p>
       </InfoWrapper>
     </Container>
   );
