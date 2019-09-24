@@ -9,6 +9,9 @@ const StyledSlider = styled.div`
   & > div {
     margin: 5% 2% 0 0;
   }
+  .thumbnail {
+    width: 200px !important;
+  }
 `;
 
 const Slider = props => {
