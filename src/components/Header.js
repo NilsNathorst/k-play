@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import ContainerTemplate from "./ContainerTemplate";
 import Logo from "./Logo";
+import HamburgerMenu from "../components/HamburgerMenu";
 const SearchIcon = () => {
   return (
     <svg width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -38,6 +39,7 @@ const Container = styled(ContainerTemplate)`
   display: flex;
   margin-bottom: 2rem;
   padding-bottom: 0;
+  padding-right: 47px;
   justify-content: space-between;
   div {
     display: flex;
@@ -50,7 +52,7 @@ export class Header extends Component {
         <Logo />
         <div>
           <SearchIcon />
-          <HamburgerIcon />
+          <HamburgerMenu />
         </div>
       </Container>
     );
