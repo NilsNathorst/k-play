@@ -14,11 +14,21 @@ const MediaWrapper = styled.div`
   }
   .thumbnail {
     height: 130px;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 0;
     display: block;
   }
-  .play-icon {
+  .overlay {
+    z-index: 10;
     position: absolute;
-    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+  }
+  .play-icon {
+    z-index: 100;
+    position: absolute;
   }
 `;
 const InfoWrapper = styled.div`
@@ -73,6 +83,7 @@ const PreviewCard = props => {
       <MediaWrapper className="wrapppppppppp">
         <Link to={`/media/${id}`}>
           <Play className="play-icon" />
+          <div className="overlay"></div>
           <img className="thumbnail" src={thumbnail} alt={thumbnail} />
         </Link>
       </MediaWrapper>
