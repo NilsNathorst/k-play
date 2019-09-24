@@ -80,7 +80,7 @@ const PreviewCard = props => {
 
   return (
     <Container>
-      <MediaWrapper className="wrapppppppppp">
+      <MediaWrapper>
         <Link to={`/media/${id}`}>
           <Play className="play-icon" />
           <div className="overlay"></div>

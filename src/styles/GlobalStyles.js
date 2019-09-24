@@ -31,7 +31,6 @@ p, .card-title {
     letter-spacing: -0.0294118em;
   }
 
-
   h5 {
     letter-spacing: -0.01em;
   }
@@ -44,7 +43,26 @@ p, .card-title {
   ${"" /* alternate P tags "preamble" and "card-title" */}
 .preamble {font: ${theme.fontMobilePreamble}!important;}
 .card-title { font: ${theme.fontMobileCardTitle}!important;}
-
+.secondary-cta {
+  font: ${theme.fontMobileSecondaryCTA}!important;
+  opacity: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.primary-cta {
+  font: ${theme.fontMobilePrimaryCTA}!important;
+  opacity: 1;
+  text-transform: capitalize;
+}
+.secondary-cta:after, 
+.primary-cta:after {
+    content: ""; 
+    display: block; 
+    margin: 0 auto; 
+    width: 90%; 
+    padding-top: 2px; 
+    border-bottom: 2px solid ${theme.colorPrimary}; 
+}
   @media screen and (min-width: 900px) {
     h1,h2,h3,h4, article {
     letter-spacing: -0.0294118em;
