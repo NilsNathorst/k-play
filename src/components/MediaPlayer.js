@@ -36,12 +36,11 @@ const MediaPlayer = props => {
   const [isLoaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    setCurrentMedia(false);
     setLoaded(false);
-    setCurrentMedia(getMediaById(allContent, props.match.params.id));
     setTimeout(() => {
+      setCurrentMedia(getMediaById(allContent, props.match.params.id));
       setLoaded(true);
-    }, 200);
+    }, 20);
   }, [props.match]);
   useEffect(() => {
     setRelatedMedia(getRelatedMedia(allContent, currentMedia.tags));
