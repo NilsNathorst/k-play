@@ -14,7 +14,7 @@ const MediaWrapper = styled.div`
   }
   .thumbnail {
     height: 130px;
-    width: 100%;
+    /* width: 100%; */
     object-fit: cover;
     object-position: 50% 0;
     display: block;
@@ -49,7 +49,6 @@ const InfoWrapper = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-self: start;
   background-color: ${({ theme }) => theme.colorDark};
   width: 100%;
   height: 100%;
