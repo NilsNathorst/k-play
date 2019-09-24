@@ -34,24 +34,28 @@ class HamburgerMenu extends React.Component {
     alignItems:'center',
     width: '100%',
     color: `${Theme.colorLight}`,
+    },
+    kaLink:{
+      'margin': '100% 0 0 4%',
+    
     }
   }
-    const menu = [
-      { location: "selectedcontent/all", name: "Alla Videoklipp" },
-      { location: "selectedcontent/all", name: "Alla Podcasts" },
-      { location: "about", name: "Om K-play" },
-      { location: "settings", name: "Inställningar" }
-    ];
+  const menu = [
+    { location: "selectedcontent/all", name: "Alla Videoklipp" },
+    { location: "selectedcontent/all", name: "Alla Podcasts" },
+    { location: "about", name: "Om K-play" },
+    { location: "settings", name: "Inställningar" }
+  ];
 
-    const menuItems = menu.map((item,i)=>{
-      return (
-        <MenuItem>
-          <Link key={i} 
-          delay={`${i * 0.5}s`} onClick={()=>this.handleLinkClick()} 
-          to={`/${item.location}`}>{item.name}
-          </Link>
-        </MenuItem>)
-      });
+  const menuItems = menu.map((item,i)=>{
+    return (
+      <MenuItem>
+        <Link key={i} 
+        delay={`${i * 0.5}s`} onClick={()=>this.handleLinkClick()} 
+        to={`/${item.location}`}>{item.name}
+        </Link>
+      </MenuItem>)
+    });
 
   return(
     <div>
@@ -60,6 +64,7 @@ class HamburgerMenu extends React.Component {
       </div>
       <Menu open={this.state.menuOpen}>
         {menuItems}
+      <a style={styles.kaLink} href="https://www.kulturakademin.com/"> Till Kulturakademin</a>
       </Menu>
     </div>
   )
