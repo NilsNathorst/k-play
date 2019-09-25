@@ -9,6 +9,8 @@ import CategoriesContainer from "../components/CategoriesContainer";
 import FixedScrollContainer from "../components/FixedScrollContainer";
 import Slider from "../components/Slider";
 import PreviewCard from "../components/PreviewCard";
+import Footer from "../components/Footer";
+
 const ImageWrapper = styled(ContainerTemplate)`
   transform: translateY(-115px);
   z-index: -1;
@@ -121,6 +123,7 @@ const Home = () => {
         </Slider>
       </FixedScrollContainer>
       <CategoriesContainer secondary />
+      <Footer/>
     </>
   );
 };
