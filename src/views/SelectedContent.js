@@ -18,16 +18,7 @@ const Container = styled(ContainerTemplate)`
   justify-items: center;
   grid-gap: 1rem;
 `;
-// const categories = [
-//   { label: "dans", name: "Dans", value: filterContentByTag(videos, "dans") },
-//   {
-//     label: "teater",
-//     name: "Teater",
-//     value: filterContentByTag(videos, "teater")
-//   },
-//   { label: "film", name: "Film", value: filterContentByTag(videos, "film") },
-//   { label: "all", name: "Alla videor", value: videos }
-// ];
+
 const SelectedContent = props => {
   let currentVideos = filterContentByTag(videos, props.match.params.category);
   let currentPodcasts = filterContentByTag(
