@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import tags from "../data/tags";
 const categories = [...new Set(tags.flat())];
-
+console.log(categories);
 const Container = styled.div`
   width: 100%;
   display: flex;
@@ -33,7 +33,7 @@ display: none;
 const CategoriesContainer = props => {
   return (
     <Container secondary={props.secondary}>
-      {categories.slice(0, 8).map((category, i) => (
+      {categories.map((category, i) => (
         <Link key={i} to={`/selectedcontent/${category}`}>
           <p className="primary-cta">{category}</p>
         </Link>

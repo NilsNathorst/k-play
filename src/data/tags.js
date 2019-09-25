@@ -1,8 +1,9 @@
 const tags = [
-  ["audiovisuellt", "teater", "scenkonst", "skrivande"],
-  ["skådespel", "teater", "scenkonst", "workshop", "manus"],
-  ["musik", "audiovisuellt", "ljus", "ljussättning"],
-  ["fotografi", "skrivande", "bildkonst", "ljussättning"],
-  ["masterclass", "manus", "ljus", "skrivande", "teater"]
+  ["scenkonst", "audiovisuellt"],
+  ["skrivande", "ljud"],
+  ["bild"],
+  ["audiovisuellt", "skrivande"],
+  ["ljud", "bild"],
+  ["scenkonst"]
 ];
 export default tags;
