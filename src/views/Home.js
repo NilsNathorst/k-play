@@ -10,6 +10,7 @@ import FixedScrollContainer from "../components/FixedScrollContainer";
 import Slider from "../components/Slider";
 import PreviewCard from "../components/PreviewCard";
 const ImageWrapper = styled(ContainerTemplate)`
+  position: absolute;
   transform: translateY(-115px);
   z-index: -1;
   width: 100vw;
@@ -47,12 +48,35 @@ const allPodcasts = tracks;
 //  video.viewed = true
 //);
 //Eller något
-
+const FeaturedArticle = styled(ContainerTemplate)`
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  .preamble {
+    margin-top: 10px;
+  }
+  margin-top: 90px;
+  .secondary-cta {
+    margin-top: 38px;
+    width: 64px;
+  }
+`;
 const Home = () => {
   return (
     <>
       <ImageWrapper />
-
+      <FeaturedArticle>
+        <h5>i fokus</h5>
+        <h1>Karin</h1>
+        <h1>Fahlén</h1>
+        <p className="preamble">
+          Hör karin berätta mer om att regissera Sthlm rekviem
+        </p>
+        <Link to={`/playlist`}>
+          <p className="secondary-cta">titta nu</p>
+        </Link>
+      </FeaturedArticle>
+      <h5 style={{ textAlign: "center" }}>Kompetensutveckling inom:</h5>
       <FixedScrollContainer>
         <Slider>
           <CategoriesContainer />
