@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import tags from "../data/tags";
 const categories = [...new Set(tags.flat())];
-console.log(categories);
+
 const Container = styled.div`
   width: 100%;
   display: flex;
