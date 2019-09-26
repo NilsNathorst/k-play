@@ -28,18 +28,18 @@ const Container = styled.div`
     }
     .categories-container {
       flex-direction: column;
+      left: 0px;
       
     margin: 20vh 0 42vh 0;
     
-  .primary-cta {
-    margin-top: 12px;
-    
-  }
-  .primary-cta:after {
-    background-color: white;
-  }
-
-`}
+    .primary-cta {
+      margin-top: 12px;
+      
+    }
+    .primary-cta:after {
+      background-color: white;
+    }
+  `}
 `;
 
 const CategoriesContainer = props => {
