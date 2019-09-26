@@ -6,6 +6,7 @@ const StyledFixedScrollContainer = styled.div`
   width: 100%;
   overflow-x: scroll;
   scroll-behavior: smooth;
+  padding-left: 15px;
   
   ::-webkit-scrollbar {
     display: none;
