@@ -92,7 +92,7 @@ const MediaPlayer = props => {
             soundCloudData={currentMedia}
             clientId={clientId}
             resolveUrl={currentMedia.trackUrl}
-            onReady={() => console.log("track is loaded!")}
+            onReady={() => console.log("")}
           />
         )}
         <MediaTitleWrapper>

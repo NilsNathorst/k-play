@@ -65,7 +65,7 @@ const SoundPlayer = withSoundCloudAudio(props => {
   let progressInPercent = Math.floor(
     (props.currentTime / props.soundCloudData.duration) * 100000
   );
-  console.log(props.soundCloudData.thumbnail);
+
   return (
     <Container>
       <StyledImage src={props.soundCloudData.thumbnail}></StyledImage>
