@@ -28,18 +28,17 @@ const StyledContainer = styled.div`
 
 const OuterContainer = styled.div`
   margin-left: 21px;
+  .text-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end; 
+  }
 `;
 
 const KaLink = styled.a`
-  .primary-cta {
-    font: ${({ theme }) => theme.fontMobilePrimaryCTA};
-    text-align: right;
-    text-decoration: underline;
-    text-decoration-color: ${({ theme }) => theme.colorPrimary};
-    margin: 120px 15px 0 0;
-    opacity: 1;
-    animation: 1.25s ${kaLinkAnimation} forwards;
-  }
+  text-align: right;
+  margin: 120px 15px 0 0;
+  animation: 1.25s ${kaLinkAnimation} forwards;
 `;
 
 class HamburgerMenu extends React.Component {
@@ -63,7 +62,7 @@ class HamburgerMenu extends React.Component {
     { location: "selectedcontent/all", name: "Alla Videoklipp" },
     { location: "selectedcontent/all", name: "Alla Podcasts" },
     { location: "about", name: "Om K-play" },
-    { location: "settings", name: "Inställningar" }
+    { location: "settings", name: "Inställningar"}
   ];
 
   const menuItems = menu.map((item,i)=>{
@@ -75,15 +74,17 @@ class HamburgerMenu extends React.Component {
         </Link>
       </MenuItem>)
     });
-
-  return(
-    <OuterContainer>
+    
+    return(
+      <OuterContainer>
       <StyledContainer>
         <MenuButton open={this.state.menuOpen} onClick={()=>this.handleMenuClick()} color={'white'}/>
       </StyledContainer>
       <Menu open={this.state.menuOpen}>
         {menuItems}
-      <KaLink href="https://www.kulturakademin.com/"><p className="primary-cta">Till Kulturakademin</p></KaLink>
+        <div className="text-wrapper">
+          <KaLink href="https://www.kulturakademin.com/"><p className="primary-cta">Till Kulturakademin</p></KaLink>
+        </div>
       </Menu>
     </OuterContainer>
   )

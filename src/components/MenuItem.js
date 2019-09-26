@@ -33,16 +33,10 @@ const StyledMenuItem = styled.div`
   padding: 6% 0 2% 0;
   margin: 0 5%;
   cursor: pointer;
-  color: this.state.hover? gray:#fafafa;
-  transition: color 0.2s ease-in-out;
   animation: 0.75s ${slideIn} forwards;
   animationDelay:this.props.delay;
-  .primary-cta {
-    font: ${({ theme }) => theme.fontMobilePrimaryCTA};
-    text-align: right;
-    text-decoration: underline;
-    margin-top: 12px;
-    opacity: 1;
+  .primary-cta:after{
+    background: ${({ theme }) => theme.colorLight}; 
   }
 `
 
