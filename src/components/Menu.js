@@ -1,21 +1,28 @@
 import React from "react";
-import theme from "../styles/Theme";
 import styled from "styled-components";
+
 const body = document.getElementById("root");
+
 const Container = styled.div`
   position: absolute;
   top: -41%;
   right: -47px;
-  height: ${props => (props.isOpen ? "100vh" : "0")};
+  height: ${props => (props.isOpen ? "101vh" : "0")};
   width: 100vw;
   display: flex;
   flex-direction: column;
+  padding-top: 13%;
   background: ${({ theme }) => theme.colorDark};
   transition: height 0.3s ease;
   z-index: 101;
   overflow: hidden;
 `;
-const MenuList = styled.div``;
+const MenuList = styled.div`
+  padding-top: 30%;
+  display: flex;
+  flex-direction: column;
+`;
+
 class Menu extends React.Component {
   constructor(props) {
     super(props);
@@ -32,19 +39,11 @@ class Menu extends React.Component {
   render() {
     if (this.props.open) body.classList.add("hidden");
     if (!this.props.open) body.classList.remove("hidden");
-    const styles = {
-      container: {},
-      menuList: {
-        paddingTop: "25%",
-        display: "flex",
-        flexDirection: "column"
-      }
-    };
 
     return (
-      <Container isOpen={this.props.open} style={styles.container}>
+      <Container isOpen={this.props.open}>
         {this.state.open ? (
-          <div style={styles.menuList}>{this.props.children}</div>
+          <MenuList>{this.props.children}</MenuList>
         ) : null}
       </Container>
     );

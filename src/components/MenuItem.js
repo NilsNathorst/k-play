@@ -30,7 +30,7 @@ const StyledContainer = styled.div`
 `
 const StyledMenuItem = styled.div`
   fontSize: 1.2rem;
-  padding: 6% 0 2% 0;
+  padding: 7% 0 2% 0;
   margin: 0 5%;
   cursor: pointer;
   animation: 0.75s ${slideIn} forwards;
