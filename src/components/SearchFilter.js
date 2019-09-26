@@ -13,7 +13,7 @@ const Container = styled.div`
     right: 12px;
   }
   input::placeholder {
-    text-align: center;
+    text-align: left;
   }
 `;
 const StyledInput = styled.input`

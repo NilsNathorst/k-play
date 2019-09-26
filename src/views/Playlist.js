@@ -19,6 +19,9 @@ const PlaylistHeader = styled.div`
   padding-right: ${({ theme }) => theme.padding2};
   padding-bottom: ${({ theme }) => theme.padding4};
   background-color: ${({ theme }) => theme.colorDark};
+  h1 {
+    margin: 24px 0;
+  }
 `;
 const Playlist = props => {
   return (

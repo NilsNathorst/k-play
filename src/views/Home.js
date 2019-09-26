@@ -63,6 +63,9 @@ const FeaturedArticle = styled(ContainerTemplate)`
   display: flex;
   flex-direction: column;
   height: 40vh;
+  h5 {
+    margin-bottom: 8px;
+  }
   .preamble {
     margin-top: 10px;
   }
@@ -87,7 +90,9 @@ const Home = () => {
           <p className="secondary-cta">titta nu</p>
         </Link>
       </FeaturedArticle>
-      <h5 style={{ textAlign: "center" }}>Kompetensutveckling inom:</h5>
+      <h5 style={{ textAlign: "center", marginTop: "26px" }}>
+        Kompetensutveckling inom:
+      </h5>
       <Overlay />
       <FixedScrollContainer>
         <Slider>

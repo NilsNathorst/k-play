@@ -21,7 +21,7 @@ const ExpandButtonWrapper = styled.div`
     align-items: center;
   }
 `;
-
+const Wrapper = styled.div``;
 class PlaylistDescription extends Component {
   constructor(props) {
     super(props);
