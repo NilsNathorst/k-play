@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 // import Search from "../components/Search";
 import styled from "styled-components";
 import Return from "../components/buttons/Return";
-
+import tags from "../data/tags";
 import PreviewCard from "../components/PreviewCard";
 import videos from "../data/youtube";
 import podcasts from "../data/tracks";
@@ -20,6 +20,7 @@ const Container = styled(ContainerTemplate)`
   grid-gap: 1rem;
 `;
 const CategoryHeaderTitle = styled.h1`
+  padding-top: 32px;
   text-transform: capitalize;
 `;
 const SelectedContent = props => {
@@ -48,10 +49,36 @@ const SelectedContent = props => {
     handleSearchChange();
   }, [query]);
 
-  const TestTagBox = styled.div`
-    background-color: tomato;
-    width: 60px;
-    height: 20px;
+  const TagBox = styled.div`
+    .card-title {
+      text-transform: capitalize;
+      border-radius: 4px;
+      background-color: ${({ theme }) => theme.colorPrimary};
+      margin-right: 8px;
+      padding: 12px 24px;
+      opacity: 1;
+    }
+  `;
+  const Overlay = styled.div`
+    z-index: 100;
+    background: linear-gradient(
+      to left,
+      ${({ theme }) => theme.colorDark},
+      rgba(0, 0, 0, 0)
+    );
+    width: 24vw;
+    right: 0;
+    position: absolute;
+    margin-top: 10px;
+    height: 75px;
+  `;
+
+  const TagsContainer = styled(ContainerTemplate)`
+    ::-webkit-scrollbar {
+      width: 0 !important;
+    }
+    display: flex;
+    overflow: scroll;
   `;
   const ToggleTypeContainer = styled(ContainerTemplate)`
     display: flex;
@@ -92,9 +119,13 @@ const SelectedContent = props => {
   const NothingFoundMessage = styled(ContainerTemplate)``;
   return (
     <>
-      <Return linkTo="/" />
       <ContainerTemplate>
-        <CategoryHeaderTitle>{props.match.params.category}</CategoryHeaderTitle>
+        <Return linkTo="/" />
+        <CategoryHeaderTitle>
+          {props.match.params.category === "all"
+            ? "Alla"
+            : props.match.params.category}{" "}
+        </CategoryHeaderTitle>
       </ContainerTemplate>
       <SearchFilter
         query={query}
@@ -104,9 +135,23 @@ const SelectedContent = props => {
         }}
         value={query}
       ></SearchFilter>
-      <TestTagBox onClick={() => setQuery("Åsa")}>
-        <p>Åsa</p>
-      </TestTagBox>
+      <Overlay />
+      <TagsContainer>
+        {[...new Set(tags.flat())].map(tag => {
+          return (
+            <TagBox
+              onClick={() => {
+                let spc = "";
+                if (query.length > 0) spc = " ";
+                setQuery(query + spc + tag);
+              }}
+            >
+              <h6 className="card-title">{tag}</h6>
+            </TagBox>
+          );
+        })}
+      </TagsContainer>
+
       <ToggleTypeContainer>
         <ToggleType onClick={() => toggleType("all")}>alla:</ToggleType>
         <ToggleType onClick={() => toggleType("video")}>klipp</ToggleType>

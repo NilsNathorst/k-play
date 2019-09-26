@@ -10,6 +10,7 @@ const Container = styled.div`
   padding-left: 10px;
   svg {
     position: absolute;
+    right: 12px;
   }
   input::placeholder {
     text-align: center;
