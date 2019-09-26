@@ -7,6 +7,9 @@ const GlobalStyle = createGlobalStyle`
   height: 100vh;
   overflow-y: hidden;
 }
+.isActive {
+  text-decoration: underline;
+}
   *,*::before,*::after {
     box-sizing: border-box;
     margin: 0;
@@ -58,6 +61,7 @@ p, .card-title {
   opacity: 1;
   text-transform: capitalize;
 }
+
 .secondary-cta:after, 
 .primary-cta:after {
     content: ""; 
