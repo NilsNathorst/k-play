@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import YoutubePlayer from "@u-wave/react-youtube";
 import styled from "styled-components";
 import GoBack from "./buttons/GoBack";
@@ -28,13 +29,26 @@ const PlayerWindowWrapper = styled.div`
   min-height: 300px;
 `;
 const RelatedControlWrapper = styled(ContainerTemplate)``;
-
+const PlaylistInfo = styled(ContainerTemplate)`
+  div {
+    display: flex;
+  }
+  p {
+    opacity: 1;
+  }
+  div p:first-child {
+    font-weight: bold;
+    margin-right: 2px;
+  }
+  .playlist-name {
+    text-decoration: underline;
+  }
+`;
 const MediaPlayer = props => {
   const allContent = [videos, podcasts].flat();
   const [currentMedia, setCurrentMedia] = useState(false);
   const [relatedMedia, setRelatedMedia] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
-
   useEffect(() => {
     setLoaded(false);
     setTimeout(() => {
@@ -67,6 +81,20 @@ const MediaPlayer = props => {
           />
         )}
       </PlayerWindowWrapper>
+      {currentMedia.playlist == "Karin Fahlén" && (
+        <PlaylistInfo>
+          <div className="playlist-person">
+            <p>Karin Fahlén,</p>
+            <p>Regissör </p>
+          </div>
+          <Link to="/playlist">
+            <div className="playlist-info">
+              <p>Serie:</p>
+              <p className="playlist-name">Regi med Karin Fahlén</p>
+            </div>
+          </Link>
+        </PlaylistInfo>
+      )}
       <div className="related-control-wrapper"></div>
       <RelatedControlWrapper>
         <h4>liknande klipp</h4>

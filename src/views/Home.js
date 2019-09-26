@@ -45,10 +45,20 @@ const SectionInfo = styled.div`
 const Container = styled(ContainerTemplate)``;
 const allVideos = videos;
 const allPodcasts = tracks;
-//const viewed = videos.filter(video =>
-//  video.viewed = true
-//);
-//Eller något
+const Overlay = styled.div`
+  z-index: 100;
+  background: linear-gradient(
+    to left,
+    ${({ theme }) => theme.colorDark},
+    rgba(0, 0, 0, 0)
+  );
+  width: 24vw;
+  right: 0;
+  position: absolute;
+  margin-top: 10px;
+  height: 75px;
+`;
+
 const FeaturedArticle = styled(ContainerTemplate)`
   display: flex;
   flex-direction: column;
@@ -78,6 +88,7 @@ const Home = () => {
         </Link>
       </FeaturedArticle>
       <h5 style={{ textAlign: "center" }}>Kompetensutveckling inom:</h5>
+      <Overlay />
       <FixedScrollContainer>
         <Slider>
           <CategoriesContainer />
