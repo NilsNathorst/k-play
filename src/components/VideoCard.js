@@ -53,7 +53,7 @@ const Container = styled.div`
 `;
 const VideoCard = props => {
   const { id, publishedAt, thumbnail, title } = props.video;
-  console.log(props.video);
+
   return (
     <Container>
       <VideoWrapper>

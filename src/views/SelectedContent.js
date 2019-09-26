@@ -155,12 +155,10 @@ const SelectedContent = props => {
       setCurrentMedia([currentPodcasts, currentVideos].flat());
       return;
     }
-
-    console.log("toggle done.");
   };
   if (!query) tags = resetTags;
   const NothingFoundMessage = styled(ContainerTemplate)``;
-  console.log(activeType);
+
   return (
     <>
       <ContainerTemplate>
