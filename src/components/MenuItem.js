@@ -21,19 +21,9 @@ const slideIn = keyframes`{
 }
 `
 
-const shrink = keyframes`{
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 50%;
-  }
-}
-`
-
 const StyledContainer = styled.div`
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-items: flex-end;
   animation: 1s ${appear} forwards;
   animationDelay:this.props.delay;
@@ -47,14 +37,13 @@ const StyledMenuItem = styled.div`
   transition: color 0.2s ease-in-out;
   animation: 0.75s ${slideIn} forwards;
   animationDelay:this.props.delay;
-`
-const StyledLine = styled.div`
-  width: 50%;
-  height: 2px;
-  background: #fff;
-  margin: 0 5%;
-  animation: 0.5s ${shrink} forwards;
-  animationDelay:this.props.delay;
+  .primary-cta {
+    font: ${({ theme }) => theme.fontMobilePrimaryCTA};
+    text-align: right;
+    text-decoration: underline;
+    margin-top: 12px;
+    opacity: 1;
+  }
 `
 
 class MenuItem extends React.Component{
@@ -72,13 +61,12 @@ class MenuItem extends React.Component{
   render(){
     return(
       < StyledContainer >
-        < StyledLine />
         < StyledMenuItem 
           onMouseEnter={()=>{this.handleHover();}} 
           onMouseLeave={()=>{this.handleHover();}}
           onClick={this.props.onClick}
           >
-          {this.props.children}  
+          <p className="primary-cta">{this.props.children}</p>  
         </ StyledMenuItem>
       </ StyledContainer > 
     )
