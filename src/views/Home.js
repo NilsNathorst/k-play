@@ -81,7 +81,7 @@ const Home = () => {
         <h1>Karin</h1>
         <h1>Fahlén</h1>
         <p className="preamble">
-          Hör karin berätta mer om att regissera Sthlm rekviem
+          Hör Karin berätta mer om att regissera Sthlm rekviem
         </p>
         <Link to={`/playlist`}>
           <p className="secondary-cta">titta nu</p>
