@@ -9,6 +9,8 @@ import PreviewCard from "./PreviewCard";
 import ContainerTemplate from "./ContainerTemplate";
 import { getMediaById, getRelatedMedia } from "../functions";
 import SoundPlayer from "./SoundPlayer";
+import ShareIcon from "../assets/icons/ShareIcon";
+import PlaylistDescription from "./playlistDescription";
 const clientId = "45ca7c7c9b41fdcb2501bb7dd27e168b";
 
 const StyledYoutubePlayer = styled(YoutubePlayer)`
@@ -44,6 +46,18 @@ const PlaylistInfo = styled(ContainerTemplate)`
     text-decoration: underline;
   }
 `;
+const MediaTitleWrapper = styled(ContainerTemplate)`
+  display: flex;
+  justify-content: space-between;
+  h4 {
+    width: 90%;
+  }
+  svg {
+    margin-top: 5px;
+    right: 15px;
+    position: absolute;
+  }
+`;
 const MediaPlayer = props => {
   const allContent = [videos, podcasts].flat();
   const [currentMedia, setCurrentMedia] = useState(false);
@@ -62,7 +76,9 @@ const MediaPlayer = props => {
 
   return (
     <>
-      <GoBack />
+      <div style={{ margin: "0 0 10px 15px" }}>
+        <GoBack />
+      </div>
       <PlayerWindowWrapper>
         {isLoaded && currentMedia && currentMedia.type === "video" && (
           <StyledYoutubePlayer
@@ -80,6 +96,10 @@ const MediaPlayer = props => {
             onReady={() => console.log("track is loaded!")}
           />
         )}
+        <MediaTitleWrapper>
+          <h4>{currentMedia.title}</h4>
+          <ShareIcon></ShareIcon>
+        </MediaTitleWrapper>
       </PlayerWindowWrapper>
       {currentMedia.playlist == "Karin Fahlén" && (
         <PlaylistInfo>
@@ -93,6 +113,7 @@ const MediaPlayer = props => {
               <p className="playlist-name">Regi med Karin Fahlén</p>
             </div>
           </Link>
+          <PlaylistDescription></PlaylistDescription>
         </PlaylistInfo>
       )}
       <div className="related-control-wrapper"></div>

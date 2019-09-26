@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 // import Search from "../components/Search";
 import styled from "styled-components";
 import Return from "../components/buttons/Return";
-import tags from "../data/tags";
+
 import PreviewCard from "../components/PreviewCard";
 import videos from "../data/youtube";
 import podcasts from "../data/tracks";
@@ -10,6 +10,7 @@ import ContainerTemplate from "../components/ContainerTemplate";
 import { searchContent, filterContentByTag } from "../functions";
 import SearchFilter from "../components/SearchFilter";
 import Course from "../components/Course";
+const tags = ["teater", "masterclass", "seminarium", "tv", "drama"];
 
 const Container = styled(ContainerTemplate)`
   width: 100%;
@@ -55,7 +56,7 @@ const SelectedContent = props => {
       border-radius: 4px;
       background-color: ${({ theme }) => theme.colorPrimary};
       margin-right: 8px;
-      padding: 12px 24px;
+      padding: 8px 16px;
       opacity: 1;
     }
   `;
@@ -137,7 +138,7 @@ const SelectedContent = props => {
       ></SearchFilter>
       <Overlay />
       <TagsContainer>
-        {[...new Set(tags.flat())].map(tag => {
+        {tags.map(tag => {
           return (
             <TagBox
               onClick={() => {

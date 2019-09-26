@@ -4,7 +4,7 @@ import styled from "styled-components";
 import videos from "../data/youtube";
 import VideosContainer from "../components/VideosContainer";
 import VideoCard from "../components/VideoCard";
-import Return from "../components/buttons/Return";
+import GoBack from "../components/buttons/GoBack";
 import Description from "../components/playlistDescription";
 
 const SelectedPlaylist = videos.filter(video =>
@@ -24,7 +24,7 @@ const Playlist = props => {
   return (
     <>
       <PlaylistHeader>
-        <Return linkTo="/" />
+        <GoBack />
         <h4>spellista</h4>
         <h1>
           Regi med <br></br>Karin Fahlén
