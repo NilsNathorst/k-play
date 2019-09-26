@@ -9,6 +9,7 @@ import podcasts from "../data/tracks";
 import ContainerTemplate from "../components/ContainerTemplate";
 import { searchContent, filterContentByTag } from "../functions";
 import SearchFilter from "../components/SearchFilter";
+import Course from "../components/Course";
 
 const Container = styled(ContainerTemplate)`
   width: 100%;
@@ -18,16 +19,9 @@ const Container = styled(ContainerTemplate)`
   justify-items: center;
   grid-gap: 1rem;
 `;
-// const categories = [
-//   { label: "dans", name: "Dans", value: filterContentByTag(videos, "dans") },
-//   {
-//     label: "teater",
-//     name: "Teater",
-//     value: filterContentByTag(videos, "teater")
-//   },
-//   { label: "film", name: "Film", value: filterContentByTag(videos, "film") },
-//   { label: "all", name: "Alla videor", value: videos }
-// ];
+const CategoryHeaderTitle = styled.h1`
+  text-transform: capitalize;
+`;
 const SelectedContent = props => {
   let currentVideos = filterContentByTag(videos, props.match.params.category);
   let currentPodcasts = filterContentByTag(
@@ -41,7 +35,7 @@ const SelectedContent = props => {
 
   const [searchResult, setSearchResult] = useState([]);
   const [currentMedia, setCurrentMedia] = useState([]);
-  const [query, setQuery] = useState("");
+  let [query, setQuery] = useState("");
 
   const handleSearchChange = preset => {
     if (preset) query = preset;
@@ -72,27 +66,43 @@ const SelectedContent = props => {
   };
 
   const toggleType = type => {
+    if (searchResult.length > 0) {
+      type === "video" &&
+        setSearchResult(searchResult.filter(media => media.type === "video"));
+      type === "podcast" &&
+        setSearchResult(searchResult.filter(media => media.type === "podcast"));
+      type === "all" && setSearchResult(searchResult);
+      return;
+    }
     setQuery("");
     if (type === "video") {
       setCurrentMedia(currentVideos);
+      return;
     }
     if (type === "podcast") {
       setCurrentMedia(currentPodcasts);
+      return;
     }
     if (type === "all") {
       setCurrentMedia([currentPodcasts, currentVideos].flat());
+      return;
     }
+    console.log("toggle done.");
   };
   const NothingFoundMessage = styled(ContainerTemplate)``;
   return (
     <>
       <Return linkTo="/" />
+      <ContainerTemplate>
+        <CategoryHeaderTitle>{props.match.params.category}</CategoryHeaderTitle>
+      </ContainerTemplate>
       <SearchFilter
         query={query}
         content={currentMedia}
         onChange={({ target }) => {
           setQuery(target.value);
         }}
+        value={query}
       ></SearchFilter>
       <TestTagBox onClick={() => setQuery("Åsa")}>
         <p>Åsa</p>
@@ -116,6 +126,7 @@ const SelectedContent = props => {
               })}
         </Container>
       )}
+      <Course></Course>
     </>
   );
 };
