@@ -56,7 +56,7 @@ const SelectedContent = props => {
       border-radius: 4px;
       background-color: ${({ theme }) => theme.colorPrimary};
       margin-right: 8px;
-      padding: 12px 24px;
+      padding: 8px 16px;
       opacity: 1;
     }
   `;

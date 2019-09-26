@@ -1,4 +1,19 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+import ExpandIcon from "../assets/icons/ExpandIcon";
+const ExpandButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h6 {
+    margin-top: 16px;
+    font-weight: bold;
+  }
+  svg {
+    transform: rotate(${props => (props.expanded ? "180deg" : "0")});
+  }
+`;
 
 class PlaylistDescription extends Component {
   constructor(props) {
@@ -7,7 +22,6 @@ class PlaylistDescription extends Component {
       expanded: false
     };
   }
-
   expand = () => {
     this.setState({ expanded: !this.state.expanded });
   };
@@ -33,7 +47,11 @@ class PlaylistDescription extends Component {
             </p>
           </>
         )}
-        <h6 onClick={this.expand}>Läs mer</h6>
+
+        <ExpandButtonWrapper expanded={expanded}>
+          <h6 onClick={this.expand}>LÄS {expanded ? "MINDRE" : "MER"}</h6>
+          <ExpandIcon />
+        </ExpandButtonWrapper>
       </>
     );
   }
