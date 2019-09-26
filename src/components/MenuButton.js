@@ -1,4 +1,16 @@
 import React from "react";
+import styled from "styled-components";
+
+const StyledContainer = styled.div`
+  height: 38px;
+  width: 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  padding: 4px;
+  z-index: 200;
+`;
 
 class MenuButton extends React.Component {
   constructor(props){
@@ -21,15 +33,6 @@ class MenuButton extends React.Component {
 
   render(){
   const styles = {
-    container: {
-      height: '38px',
-      width: '38px',
-      display:'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: '4px',
-    },
     line: {
       height: '2px',
       width: '28px',
@@ -51,14 +54,15 @@ class MenuButton extends React.Component {
       marginTop: '8px',
     },       
   }
+  
   return(
-    <div style={styles.container} 
+    <StyledContainer 
       onClick={this.props.onClick ? this.props.onClick: 
       ()=> {this.handleClick();}}>
         <div style={{...styles.line,...styles.lineTop}}/>
         <div style={{...styles.line,...styles.lineMiddle}}/>
         <div style={{...styles.line,...styles.lineBottom}}/>
-    </div>
+    </StyledContainer>
   )
   }
 }
