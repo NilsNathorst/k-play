@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import MenuItem from "../components/MenuItem";
 import MenuButton from "../components/MenuButton";
 import Menu from "../components/Menu";
+import ArrowIcon from "../assets/icons/ArrowIcon";
 import styled, { keyframes } from "styled-components";
+import SearchField from "./SearchFilter";
 
 const kaLinkAnimation = keyframes`{
   0% {
@@ -14,6 +16,16 @@ const kaLinkAnimation = keyframes`{
     transform: translateX(0);
   }
 }`
+
+const SearchAnimation = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+`
 
 const StyledContainer = styled.div`
   position: absolute;
@@ -31,15 +43,21 @@ const OuterContainer = styled.div`
   .text-wrapper {
     display: flex;
     width: 100%;
-    justify-content: flex-end; 
+    justify-content: flex-start;
+    margin: 173px 0 0 15px; 
+    animation: 1.25s ${kaLinkAnimation} forwards;
+  }
+  .search-wrapper{
+    display: block;
+    animation: 1.25s ${SearchAnimation} forwards;
   }
 `;
 
 const KaLink = styled.a`
   text-align: right;
-  margin: 120px 15px 0 0;
-  animation: 1.25s ${kaLinkAnimation} forwards;
+  margin-left: 15px;
 `;
+
 
 class HamburgerMenu extends React.Component {
   constructor(props){
@@ -81,9 +99,13 @@ class HamburgerMenu extends React.Component {
         <MenuButton open={this.state.menuOpen} onClick={()=>this.handleMenuClick()} color={'white'}/>
       </StyledContainer>
       <Menu open={this.state.menuOpen}>
+        <div className="search-wrapper">
+          <SearchField />
+        </div>
         {menuItems}
         <div className="text-wrapper">
-          <KaLink href="https://www.kulturakademin.com/"><p className="primary-cta">Till Kulturakademin</p></KaLink>
+          <ArrowIcon />
+          <KaLink href="https://www.kulturakademin.com/"><p className="secondary-cta">Till Kulturakademin</p></KaLink>
         </div>
       </Menu>
     </OuterContainer>
