@@ -20,6 +20,7 @@ const Container = styled(ContainerTemplate)`
   grid-gap: 1rem;
 `;
 const CategoryHeaderTitle = styled.h1`
+  padding-top: 32px;
   text-transform: capitalize;
 `;
 const SelectedContent = props => {
@@ -92,9 +93,13 @@ const SelectedContent = props => {
   const NothingFoundMessage = styled(ContainerTemplate)``;
   return (
     <>
-      <Return linkTo="/" />
       <ContainerTemplate>
-        <CategoryHeaderTitle>{props.match.params.category}</CategoryHeaderTitle>
+        <Return linkTo="/" />
+        <CategoryHeaderTitle>
+          {props.match.params.category === "all"
+            ? "Alla"
+            : props.match.params.category}{" "}
+        </CategoryHeaderTitle>
       </ContainerTemplate>
       <SearchFilter
         query={query}
