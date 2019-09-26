@@ -27,6 +27,10 @@ const StyledContainer = styled.div`
   color: ${({ theme }) => theme.colorLight};
 `;
 
+const OuterContainer = styled.div`
+  margin-left: 21px;
+`;
+
 const KaLink = styled.a`
   .primary-cta {
     font: ${({ theme }) => theme.fontMobilePrimaryCTA};
@@ -74,7 +78,7 @@ class HamburgerMenu extends React.Component {
     });
 
   return(
-    <div>
+    <OuterContainer>
       <StyledContainer>
         <MenuButton open={this.state.menuOpen} onClick={()=>this.handleMenuClick()} color={'white'}/>
       </StyledContainer>
@@ -82,7 +86,7 @@ class HamburgerMenu extends React.Component {
         {menuItems}
       <KaLink href="https://www.kulturakademin.com/"><p className="primary-cta">Till Kulturakademin</p></KaLink>
       </Menu>
-    </div>
+    </OuterContainer>
   )
   }
 }
