@@ -48,8 +48,7 @@ const OuterContainer = styled.div`
     animation: 1.25s ${kaLinkAnimation} forwards;
   }
   .search-wrapper{
-    display: flex;
-    width: 100%;
+    display: block;
     animation: 1.25s ${SearchAnimation} forwards;
   }
 `;
