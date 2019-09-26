@@ -6,10 +6,10 @@ import Home from "./views/Home";
 import SelectedContent from "./views/SelectedContent";
 import Video from "./views/Video";
 import Playlist from "./views/Playlist";
-
+import CategoriesContainer from "./components/CategoriesContainer";
 import MediaPlayer from "./components/MediaPlayer";
 import Header from "./components/Header";
-
+import Footer from "./components/Footer";
 import Theme from "./styles/Theme";
 
 function App() {
@@ -35,6 +35,8 @@ function App() {
               {/* <Route exact path="/media" component={Video}></Route> */}
               <Route path="/media/:id" component={MediaPlayer}></Route>
             </Switch>
+            <CategoriesContainer secondary />
+            <Footer />
           </Router>
         </>
       </ThemeProvider>

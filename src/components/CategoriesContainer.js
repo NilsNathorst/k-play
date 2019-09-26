@@ -12,32 +12,47 @@ const Container = styled.div`
   .primary-cta {
     padding: ${({ theme }) => theme.padding2};
   }
+  .categories-container  {
+    display: flex;
+  }
   ${props =>
     props.secondary &&
     `
-    margin-top: 20vh;
-      flex-direction: column;
+    justify-content: flex-end;
+    .text-wrapper {
+      display: flex;
+      width: 100%;
       justify-content: flex-end;
-      margin-bottom: 42vh;
-      .primary-cta {
-   text-align: right;
-   text-decoration: underline;
-   margin-top: 12px;
+      
+    }
+    .categories-container {
+      flex-direction: column;
+      
+    margin: 20vh 0 42vh 0;
+    
+  .primary-cta {
+    margin-top: 12px;
+    
   }
   .primary-cta:after {
-display: none;
+    background-color: white;
   }
-    `}
+
+`}
 `;
 
 const CategoriesContainer = props => {
   return (
     <Container secondary={props.secondary}>
-      {categories.slice(0, 8).map((category, i) => (
-        <Link key={i} to={`/selectedcontent/${category}`}>
-          <p className="primary-cta">{category}</p>
-        </Link>
-      ))}
+      <div className="categories-container">
+        {categories.map((category, i) => (
+          <Link key={i} to={`/selectedcontent/${category}`}>
+            <div className="text-wrapper">
+              <p className="primary-cta">{category}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
     </Container>
   );
 };
