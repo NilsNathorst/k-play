@@ -22,7 +22,7 @@ const IconSize = '18px';
 
 const Footer = props => (
   <StyledFooterContainer>
-    <p>K-play är Kulturakedmins samlade plattform för kompetenshöjande podcasts och videos.</p>
+    <p>K-play är Kulturakadmins samlade plattform för kompetenshöjande podcasts och videos.</p>
     <StyledSoMeContainer>
       <Linkedin width={IconSize} height={IconSize} fill={`${Theme.colorLight}`} />
       <Youtube width={IconSize} height={IconSize} fill={`${Theme.colorLight}`}/>
