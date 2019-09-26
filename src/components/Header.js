@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ContainerTemplate from "./ContainerTemplate";
 import Logo from "./Logo";
 import HamburgerMenu from "../components/HamburgerMenu";
+
 const SearchIcon = () => {
   return (
     <svg width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,24 +18,6 @@ const SearchIcon = () => {
   );
 };
 
-const HamburgerIcon = () => {
-  return (
-    <svg
-      style={{ margin: "7px 0 0 21px" }}
-      width="28"
-      height="20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M0 1a1 1 0 0 1 1-1h26a1 1 0 0 1 1 1v.477a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm0 8.669a1 1 0 0 1 1-1h26a1 1 0 0 1 1 1v.476a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V9.67zm1 7.668a1 1 0 0 0-1 1v.477a1 1 0 0 0 1 1h26a1 1 0 0 0 1-1v-.477a1 1 0 0 0-1-1H1z"
-        fill="#fff"
-      />
-    </svg>
-  );
-};
 const Container = styled(ContainerTemplate)`
   display: flex;
   margin-bottom: 2rem;
@@ -45,6 +28,7 @@ const Container = styled(ContainerTemplate)`
     display: flex;
   }
 `;
+
 export class Header extends Component {
   render() {
     return (

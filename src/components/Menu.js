@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import theme from "../styles/Theme";
 
 class Menu extends React.Component {
@@ -19,16 +19,16 @@ class Menu extends React.Component {
     const styles={
       container: {
         position: 'absolute',
-        top: '-40%',
+        top: '-41%',
         right: '-47px',
-        height: this.state.open? '100vh': 0,
+        height: this.state.open? '200vh': 0,
         width: '100vw',
         display: 'flex',
         flexDirection: 'column',
         background: `${theme.colorDark}`,
         color: '#fafafa',
         transition: 'height 0.3s ease',
-        zIndex: 2,
+        zIndex: 11,
       },
         menuList: {
         paddingTop: '3rem',

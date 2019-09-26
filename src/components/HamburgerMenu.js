@@ -4,7 +4,42 @@ import { Link } from "react-router-dom";
 import MenuItem from "../components/MenuItem";
 import MenuButton from "../components/MenuButton";
 import Menu from "../components/Menu";
-import Theme from "../styles/Theme";
+import styled, { keyframes } from "styled-components";
+
+const kaLinkAnimation = keyframes`{
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}`
+
+const StyledContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  zIndex: 99;
+  display: flex;
+  alignItems: center;
+  width: 100%;
+  color: ${({ theme }) => theme.colorLight};
+`;
+
+const OuterContainer = styled.div`
+  margin-left: 21px;
+  .text-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end; 
+  }
+`;
+
+const KaLink = styled.a`
+  text-align: right;
+  margin: 120px 15px 0 0;
+  animation: 1.25s ${kaLinkAnimation} forwards;
+`;
 
 class HamburgerMenu extends React.Component {
   constructor(props){
@@ -23,28 +58,11 @@ class HamburgerMenu extends React.Component {
   }
 
   render(){
-  const styles= 
-  {
-    container:{
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    zIndex: '99',
-    display:'flex',
-    alignItems:'center',
-    width: '100%',
-    color: `${Theme.colorLight}`,
-    },
-    kaLink:{
-      'margin': '100% 0 0 4%',
-    
-    }
-  }
   const menu = [
     { location: "selectedcontent/all", name: "Alla Videoklipp" },
     { location: "selectedcontent/all", name: "Alla Podcasts" },
     { location: "about", name: "Om K-play" },
-    { location: "settings", name: "Inställningar" }
+    { location: "settings", name: "Inställningar"}
   ];
 
   const menuItems = menu.map((item,i)=>{
@@ -56,17 +74,19 @@ class HamburgerMenu extends React.Component {
         </Link>
       </MenuItem>)
     });
-
-  return(
-    <div>
-      <div style={styles.container}>
-        <MenuButton open={this.state.menuOpen} onClick={()=>this.handleMenuClick()} color={Theme.colorLight}/>
-      </div>
+    
+    return(
+      <OuterContainer>
+      <StyledContainer>
+        <MenuButton open={this.state.menuOpen} onClick={()=>this.handleMenuClick()} color={'white'}/>
+      </StyledContainer>
       <Menu open={this.state.menuOpen}>
         {menuItems}
-      <a style={styles.kaLink} href="https://www.kulturakademin.com/"> Till Kulturakademin</a>
+        <div className="text-wrapper">
+          <KaLink href="https://www.kulturakademin.com/"><p className="primary-cta">Till Kulturakademin</p></KaLink>
+        </div>
       </Menu>
-    </div>
+    </OuterContainer>
   )
   }
 }
