@@ -4,7 +4,40 @@ import { Link } from "react-router-dom";
 import MenuItem from "../components/MenuItem";
 import MenuButton from "../components/MenuButton";
 import Menu from "../components/Menu";
-import Theme from "../styles/Theme";
+import styled, { keyframes } from "styled-components";
+
+const kaLinkAnimation = keyframes`{
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+`
+
+const StyledContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  zIndex: 99;
+  display: flex;
+  alignItems: center;
+  width: 100%;
+  color: ${({ theme }) => theme.colorLight};
+`;
+
+const KaLink = styled.a`
+  .primary-cta {
+    font: ${({ theme }) => theme.fontMobilePrimaryCTA};
+    text-align: right;
+    text-decoration: underline;
+    text-decoration-color: ${({ theme }) => theme.colorPrimary};
+    margin: 120px 15px 0 0;
+    opacity: 1;
+    animation: 1.25s ${kaLinkAnimation} forwards;
+  }
+`;
 
 class HamburgerMenu extends React.Component {
   constructor(props){
@@ -23,23 +56,6 @@ class HamburgerMenu extends React.Component {
   }
 
   render(){
-  const styles= 
-  {
-    container:{
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    zIndex: '99',
-    display:'flex',
-    alignItems:'center',
-    width: '100%',
-    color: `${Theme.colorLight}`,
-    },
-    kaLink:{
-      'margin': '100% 0 0 4%',
-    
-    }
-  }
   const menu = [
     { location: "selectedcontent/all", name: "Alla Videoklipp" },
     { location: "selectedcontent/all", name: "Alla Podcasts" },
@@ -59,12 +75,12 @@ class HamburgerMenu extends React.Component {
 
   return(
     <div>
-      <div style={styles.container}>
-        <MenuButton open={this.state.menuOpen} onClick={()=>this.handleMenuClick()} color={Theme.colorLight}/>
-      </div>
+      <StyledContainer>
+        <MenuButton open={this.state.menuOpen} onClick={()=>this.handleMenuClick()} color={'white'}/>
+      </StyledContainer>
       <Menu open={this.state.menuOpen}>
         {menuItems}
-      <a style={styles.kaLink} href="https://www.kulturakademin.com/"> Till Kulturakademin</a>
+      <KaLink href="https://www.kulturakademin.com/"><p className="primary-cta">Till Kulturakademin</p></KaLink>
       </Menu>
     </div>
   )
