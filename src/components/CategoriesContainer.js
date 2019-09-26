@@ -14,6 +14,7 @@ const Container = styled.div`
   }
   .categories-container  {
     display: flex;
+    left: -15px;
   }
   ${props =>
     props.secondary &&
