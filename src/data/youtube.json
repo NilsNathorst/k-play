@@ -217,7 +217,8 @@
 	"tags": ["audiovisuellt", "ljus"],
 	"duration": "PT2M39S",
 	"type": "video",
-	"publishedAt": "2019-04-16T12:50:50.000Z"
+	"publishedAt": "2019-04-16T12:50:50.000Z",
+	"playlist": "Karin Fahlén"
 }, {
 	"id": "qgjKQrgL0o03",
 	"title": "Karin Fahlén - När produktionsteamet kuppar",
@@ -227,7 +228,8 @@
 	"tags": ["scenkonst", "audiovisuellt"],
 	"duration": "PT3M19S",
 	"type": "video",
-	"publishedAt": "2019-03-07T08:27:05.000Z"
+	"publishedAt": "2019-03-07T08:27:05.000Z",
+	"playlist": "Karin Fahlén"
 }, {
 	"id": "qgjKQrgL0o04",
 	"title": "Karin Fahlén - Lär känna din karaktär",
@@ -237,5 +239,6 @@
 	"tags": ["audiovisuellt", "skrivande"],
 	"duration": "PT45M15S",
 	"type": "video",
-	"publishedAt": "2019-03-07T08:27:05.000Z"
+	"publishedAt": "2019-03-07T08:27:05.000Z",
+	"playlist": "Karin Fahlén"
 }]

@@ -8,7 +8,7 @@ import Return from "../components/buttons/Return";
 import Description from "../components/playlistDescription";
 
 const SelectedPlaylist = videos.filter(video =>
-  video.title.split(" ").includes("Masterclass")
+  video.title.split(" ").includes("Karin")
 );
 
 const PlaylistHeader = styled.div`
@@ -24,9 +24,11 @@ const Playlist = props => {
   return (
     <>
       <PlaylistHeader>
-        <Return linkTo="/video" />
+        <Return linkTo="/" />
         <h4>spellista</h4>
-        <h1>Masterclass med Pia Olby</h1>
+        <h1>
+          Regi med <br></br>Karin Fahlén
+        </h1>
         <Description />
       </PlaylistHeader>
       <VideosContainer>
