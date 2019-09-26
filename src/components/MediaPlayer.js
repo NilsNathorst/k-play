@@ -17,7 +17,6 @@ const StyledYoutubePlayer = styled(YoutubePlayer)`
   width: 100%;
   height: 210px;
 `;
-
 const Container = styled(ContainerTemplate)`
   width: 100%;
   grid-template-columns: 48% 48%;
@@ -113,7 +112,7 @@ const MediaPlayer = props => {
               <p className="playlist-name">Regi med Karin Fahlén</p>
             </div>
           </Link>
-          <PlaylistDescription></PlaylistDescription>
+          <PlaylistDescription centered></PlaylistDescription>
         </PlaylistInfo>
       )}
       <div className="related-control-wrapper"></div>

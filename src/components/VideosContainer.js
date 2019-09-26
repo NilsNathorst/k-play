@@ -7,7 +7,7 @@ const Container = styled(ContainerTemplate)`
     to top,
     ${({ theme }) => theme.colorDark},
     ${({ theme }) => theme.colorDark} 60px,
-    ${({ theme }) => theme.colorLight} 60px
+    #fafafa 60px
   );
   grid-auto-rows: 130px;
   display: grid;

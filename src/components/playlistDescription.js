@@ -5,13 +5,20 @@ const ExpandButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: ${props => (props.centered ? "center" : "flex-start")};
   h6 {
     margin-top: 16px;
     font-weight: bold;
+    text-align: center;
+    letter-spacing: 0.07em;
   }
   svg {
     transform: rotate(${props => (props.expanded ? "180deg" : "0")});
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -48,9 +55,11 @@ class PlaylistDescription extends Component {
           </>
         )}
 
-        <ExpandButtonWrapper expanded={expanded}>
-          <h6 onClick={this.expand}>LÄS {expanded ? "MINDRE" : "MER"}</h6>
-          <ExpandIcon />
+        <ExpandButtonWrapper centered={this.props.centered} expanded={expanded}>
+          <div className="wrapper">
+            <h6 onClick={this.expand}>LÄS {expanded ? "MINDRE" : "MER"}</h6>
+            <ExpandIcon />
+          </div>
         </ExpandButtonWrapper>
       </>
     );

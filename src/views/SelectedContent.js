@@ -10,7 +10,15 @@ import ContainerTemplate from "../components/ContainerTemplate";
 import { searchContent, filterContentByTag } from "../functions";
 import SearchFilter from "../components/SearchFilter";
 import Course from "../components/Course";
-const tags = ["teater", "masterclass", "seminarium", "tv", "drama"];
+let tags = [
+  "teater",
+  "masterclass",
+  "seminarium",
+  "Karin Fahlén",
+  "tv",
+  "drama"
+];
+const resetTags = tags;
 
 const Container = styled(ContainerTemplate)`
   width: 100%;
@@ -34,7 +42,7 @@ const SelectedContent = props => {
     currentVideos = videos;
     currentPodcasts = podcasts;
   }
-
+  const [activeType, setActiveType] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [currentMedia, setCurrentMedia] = useState([]);
   let [query, setQuery] = useState("");
@@ -58,6 +66,7 @@ const SelectedContent = props => {
       margin-right: 8px;
       padding: 8px 16px;
       opacity: 1;
+      white-space: nowrap;
     }
   `;
   const Overlay = styled.div`
@@ -84,8 +93,38 @@ const SelectedContent = props => {
   const ToggleTypeContainer = styled(ContainerTemplate)`
     display: flex;
   `;
-  const ToggleType = styled.h4`
+
+  const ToggleTypeTitle = styled.div`
+    @keyframes underLine {
+      0% {
+        width: 0%;
+      }
+      100% {
+        width: 90%;
+      }
+    }
+    display: flex;
+    justify-content: center;
     padding: ${({ theme }) => theme.padding1};
+    h4:after {
+      transition: 0.5s;
+      content: "";
+      display: block;
+      padding-top: 2px;
+      height: 2px;
+      margin-top: -2px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 2px;
+      width: 0;
+      ${props =>
+        props.isActive &&
+        `
+      animation: underLine .3s forwards;
+      
+      `};
+      background-color: white;
+    }
   `;
   const isNoResult = () => {
     if (query && searchResult.length == 0) {
@@ -94,6 +133,7 @@ const SelectedContent = props => {
   };
 
   const toggleType = type => {
+    setActiveType(type);
     if (searchResult.length > 0) {
       type === "video" &&
         setSearchResult(searchResult.filter(media => media.type === "video"));
@@ -115,9 +155,12 @@ const SelectedContent = props => {
       setCurrentMedia([currentPodcasts, currentVideos].flat());
       return;
     }
+
     console.log("toggle done.");
   };
+  if (!query) tags = resetTags;
   const NothingFoundMessage = styled(ContainerTemplate)``;
+  console.log(activeType);
   return (
     <>
       <ContainerTemplate>
@@ -142,21 +185,49 @@ const SelectedContent = props => {
           return (
             <TagBox
               onClick={() => {
+                let newArr = tags.filter(selected => selected != tag);
+                tags = newArr;
                 let spc = "";
-                if (query.length > 0) spc = " ";
+                if (query.length > 0) {
+                  spc = " ";
+                }
                 setQuery(query + spc + tag);
               }}
             >
-              <h6 className="card-title">{tag}</h6>
+              <div className="wrapper">
+                <h6 className="card-title">{tag}</h6>
+              </div>
             </TagBox>
           );
         })}
       </TagsContainer>
 
       <ToggleTypeContainer>
-        <ToggleType onClick={() => toggleType("all")}>alla:</ToggleType>
-        <ToggleType onClick={() => toggleType("video")}>klipp</ToggleType>
-        <ToggleType onClick={() => toggleType("podcast")}>podcasts</ToggleType>
+        <ToggleTypeTitle
+          isActive={activeType === "all"}
+          onClick={() => {
+            toggleType("all");
+          }}
+        >
+          <h4>alla:</h4>
+        </ToggleTypeTitle>
+        <ToggleTypeTitle
+          isActive={activeType === "video"}
+          newWidth="90"
+          onClick={() => {
+            toggleType("video");
+          }}
+        >
+          <h4>klipp</h4>
+        </ToggleTypeTitle>
+        <ToggleTypeTitle
+          isActive={activeType === "podcast"}
+          onClick={() => {
+            toggleType("podcast");
+          }}
+        >
+          <h4>podcasts</h4>
+        </ToggleTypeTitle>
       </ToggleTypeContainer>
       <NothingFoundMessage>
         {isNoResult() ? <h5>Inga resultat hittades för "{query}" </h5> : null}
