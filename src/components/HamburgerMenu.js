@@ -13,8 +13,7 @@ const kaLinkAnimation = keyframes`{
   100% {
     transform: translateX(0);
   }
-}
-`
+}`
 
 const StyledContainer = styled.div`
   position: absolute;
