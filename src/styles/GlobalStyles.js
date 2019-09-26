@@ -48,6 +48,7 @@ p, .card-title {
   opacity: 1;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  text-align: center;
 }
 .primary-cta {
   font: ${theme.fontMobilePrimaryCTA}!important;
@@ -58,10 +59,12 @@ p, .card-title {
 .primary-cta:after {
     content: ""; 
     display: block; 
-    margin: 0 auto; 
+    margin: 3px auto  0; 
     width: 90%; 
     padding-top: 2px; 
-    border-bottom: 2px solid ${theme.colorPrimary}; 
+    height: 2px;
+    border-radius: 2px;
+    background: ${theme.colorPrimary};
 }
   @media screen and (min-width: 900px) {
     h1,h2,h3,h4, article {

@@ -4,9 +4,12 @@ import styled from "styled-components";
 import Play from "../components/buttons/Play";
 import moment from "moment";
 import "moment-duration-format";
+import PodcastIcon from "../assets/icons/PodcastIcon";
+import VideoIcon from "../assets/icons/VideoIcon";
 
 const MediaWrapper = styled.div`
   height: 130px;
+
   a {
     display: flex;
     align-items: center;
@@ -95,6 +98,9 @@ const PreviewCard = props => {
   return (
     <Container>
       <MediaWrapper>
+        {type == "video" && <VideoIcon />}
+        {type == "podcast" && <PodcastIcon />}
+
         <Link to={`/media/${id}`}>
           <Play className="play-icon" />
           <div className="overlay"></div>
