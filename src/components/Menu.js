@@ -28,10 +28,10 @@ class Menu extends React.Component {
         background: `${theme.colorDark}`,
         color: '#fafafa',
         transition: 'height 0.3s ease',
-        zIndex: 11,
+        zIndex: 101,
       },
         menuList: {
-        paddingTop: '3rem',
+        paddingTop: '25%',
         display: 'flex',
         flexDirection: 'column'
       }
