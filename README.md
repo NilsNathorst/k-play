@@ -66,3 +66,27 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+## Comments from Izabella and Mattias
+
+1. Split the styling into seperate files - files become to long
+2. good use of a theme style
+3. line 38 file views/Playlist.js - could minify the map function with () instead of {} and return. Also the tag dosen't need a opening and closing tag.
+4. HamburgerMenu.js  - be more consistent and use only class components or functional components. 
+5. Course.js Remove all static content and make it take in props to display data.
+6. line 230 file views/SelectedContent.js  If content should't show wrap the whole <NothingFoundMessage> in a if statement, if you don´t need the spaceing from that container.
+7. Menu.js line 8-9 - Might want to look over using negative values for positioning.
+8. src/functions/index.js - could export every function when creating it instead of exporting in the end of the file.
+10. src/components - put every component into its own file to get a better overlook
+11. Slider.js line 13 - refactor to not use the !important in css.
+12. VideoCard.js line 78 - 91 - remove this to reduce clutter.
+13. App.js - when changing route scroll to top of page.
+14. functions/index.js - Good that you've separated functions into a separate file
+15. App.js - maybe use a Layout component for the Header and the Footer components to show on every page
+16. Missing a README.md
+17. views/SelectedContent.js line 61 - styling in the middle of a component
+18. Due to the vast amount of static content the use of dynamic states are little to none.
+19. The isLoaded functionality could be moved up to a context variable.
+20. theme.js - make a array of paddings instead of naming the different paddings padding1 padding2 and so on
+21. SelectedContent.js line 244 - You could write a component that don't wrap anything like <Component /> and not <Component></Component>
